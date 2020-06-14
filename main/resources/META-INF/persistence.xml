@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
+			http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	
+	<!-- configuração de persistence-unit para cada banco de dados a ser utilizado -->
+	<persistence-unit name="mypersistenceunit">
+		
+		<properties>
+	
+			<!-- conexão JDBC -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/cadastro_empresarial" />
+			<property name="javax.persistence.jdbc.user" value="developer" />
+			<property name="javax.persistence.jdbc.password" value="123developer" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+			
+			<!-- propriedades relacionadas a manipulação das tabelas e o relacionamento com as entidades -->
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" /> <!--  propriedade para testar -->
+			<property name="javax.persistence.schema-generation.create-source" value="metadata" /> <!-- usar as anotações inseridas nas entidades -->
+			<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/dados-iniciais.sql" /> <!-- arquivo com o script para carregar dados iniciais -->
+			
+			<!-- exibe e formata o sql -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		
+		</properties>
+		
+	</persistence-unit>
+	
+</persistence>	
+	
